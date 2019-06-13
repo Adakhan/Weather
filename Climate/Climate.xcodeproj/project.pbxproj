@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA94B64E22B2B6C000DEB1FE /* ServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA94B64D22B2B6C000DEB1FE /* ServerManager.swift */; };
+		FA94B65422B2BCA300DEB1FE /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA94B65322B2BCA300DEB1FE /* Extension.swift */; };
 		FAAC3E2B22B106C100EA2AB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC3E2A22B106C100EA2AB6 /* AppDelegate.swift */; };
 		FAAC3E2D22B106C100EA2AB6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC3E2C22B106C100EA2AB6 /* ViewController.swift */; };
 		FAAC3E3022B106C100EA2AB6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAAC3E2E22B106C100EA2AB6 /* Main.storyboard */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA94B64D22B2B6C000DEB1FE /* ServerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerManager.swift; sourceTree = "<group>"; };
+		FA94B65322B2BCA300DEB1FE /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Extension.swift; path = "New Group/Extension.swift"; sourceTree = "<group>"; };
 		FAAC3E2722B106C100EA2AB6 /* Climate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Climate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAAC3E2A22B106C100EA2AB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAAC3E2C22B106C100EA2AB6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -39,6 +43,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA94B64C22B2B6AC00DEB1FE /* ServerManager */ = {
+			isa = PBXGroup;
+			children = (
+				FA94B64D22B2B6C000DEB1FE /* ServerManager.swift */,
+			);
+			path = ServerManager;
+			sourceTree = "<group>";
+		};
+		FA94B64F22B2B6EC00DEB1FE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FAAC3E2C22B106C100EA2AB6 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		FA94B65022B2B71000DEB1FE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FAAC3E3E22B1071F00EA2AB6 /* WModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		FAAC3E1E22B106C100EA2AB6 = {
 			isa = PBXGroup;
 			children = (
@@ -58,14 +86,16 @@
 		FAAC3E2922B106C100EA2AB6 /* Climate */ = {
 			isa = PBXGroup;
 			children = (
-				FAAC3E2A22B106C100EA2AB6 /* AppDelegate.swift */,
-				FAAC3E3C22B106FF00EA2AB6 /* WeatherCollectionCell.swift */,
-				FAAC3E3E22B1071F00EA2AB6 /* WModel.swift */,
-				FAAC3E2C22B106C100EA2AB6 /* ViewController.swift */,
-				FAAC3E2E22B106C100EA2AB6 /* Main.storyboard */,
-				FAAC3E3122B106C200EA2AB6 /* Assets.xcassets */,
-				FAAC3E3322B106C200EA2AB6 /* LaunchScreen.storyboard */,
 				FAAC3E3622B106C200EA2AB6 /* Info.plist */,
+				FAAC3E2A22B106C100EA2AB6 /* AppDelegate.swift */,
+				FA94B65322B2BCA300DEB1FE /* Extension.swift */,
+				FAAC3E3C22B106FF00EA2AB6 /* WeatherCollectionCell.swift */,
+				FAAC3E3122B106C200EA2AB6 /* Assets.xcassets */,
+				FA94B64F22B2B6EC00DEB1FE /* Controller */,
+				FAAC3E3322B106C200EA2AB6 /* LaunchScreen.storyboard */,
+				FAAC3E2E22B106C100EA2AB6 /* Main.storyboard */,
+				FA94B65022B2B71000DEB1FE /* Model */,
+				FA94B64C22B2B6AC00DEB1FE /* ServerManager */,
 			);
 			path = Climate;
 			sourceTree = "<group>";
@@ -141,8 +171,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA94B64E22B2B6C000DEB1FE /* ServerManager.swift in Sources */,
 				FAAC3E2D22B106C100EA2AB6 /* ViewController.swift in Sources */,
 				FAAC3E3F22B1071F00EA2AB6 /* WModel.swift in Sources */,
+				FA94B65422B2BCA300DEB1FE /* Extension.swift in Sources */,
 				FAAC3E3D22B106FF00EA2AB6 /* WeatherCollectionCell.swift in Sources */,
 				FAAC3E2B22B106C100EA2AB6 /* AppDelegate.swift in Sources */,
 			);

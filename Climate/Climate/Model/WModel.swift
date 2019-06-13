@@ -9,9 +9,6 @@
 import Foundation
 
 struct DetailedWeather: Decodable {
-    var cod: String?
-    var message: Double?
-    var cnt: Int?
     var list: [List]?
     var city: City?
 }
@@ -19,11 +16,8 @@ struct DetailedWeather: Decodable {
 struct CurrentWeather: Decodable {
     var coord: Coordinate?
     var weather:[Weather]?
-    var base: String?
     var main: Mainx?
     var visibility: Int?
-    var wind: Wind?
-    var clouds: Cloud?
     var dt: Int?
     var sys: Sysx?
     var timezone: Int?
