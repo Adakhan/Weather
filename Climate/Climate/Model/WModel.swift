@@ -17,20 +17,17 @@ struct CurrentWeather: Decodable {
     var coord: Coordinate?
     var weather:[Weather]?
     var main: Mainx?
-    var visibility: Int?
     var dt: Int?
     var sys: Sysx?
     var timezone: Int?
     var id: Int?
     var name: String?
-    var cod: Int?
 }
 
 struct List: Decodable {
     var dt: Int?
     var main: Main?
     var weather: [Weather]?
-    var clouds: Cloud?
     var wind: Wind?
     var sys: Sys?
     var dt_txt: String?
@@ -48,7 +45,6 @@ struct Main: Decodable {
 }
 
 struct Weather: Decodable {
-    var id: Int?
     var main: String?
     var description: String?
     var icon: String?
@@ -92,7 +88,6 @@ struct Mainx: Decodable {
 struct Sysx: Decodable {
     var type: Int?
     var id: Int?
-    var message: Double?
     var country: String?
     var sunrise: Int?
     var sunset: Int?
