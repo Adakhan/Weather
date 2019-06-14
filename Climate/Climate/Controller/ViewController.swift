@@ -37,6 +37,7 @@ class ViewController: UIViewController,  UICollectionViewDelegate, UICollectionV
         initSetUp()
         }
     
+
     
     func initSetUp() {
         collecView.dataSource = self
@@ -69,7 +70,7 @@ class ViewController: UIViewController,  UICollectionViewDelegate, UICollectionV
     }
     
     func UpdateForecastData(informations: DetailedWeather){
-        self.cityLabel?.text = informations.city?.name
+        self.cityLabel?.text = informations.city!.name!.translate()
         self.dtTime = informations.list![0].dt!
     
         for checked in informations.list! {
@@ -104,14 +105,14 @@ class ViewController: UIViewController,  UICollectionViewDelegate, UICollectionV
         //MARK: - UI Update
         if checkImage.last == "d" {
             self.tempLabel.text = String(dayList[0].main!.temp!.toSelcius())
-            self.descriptionLabel.text = dayList[0].weather?[0].description
+            self.descriptionLabel.text = dayList[0].weather![0].description!.translate()
             self.imageView.image = UIImage(named: (dayList[0].weather?[0].icon!)!)
 
 
         } else if checkImage.last == "n" {
             self.imageView.image = UIImage(named: (nightList[0].weather?[0].icon!)!)
             self.tempLabel.text = String(nightList[0].main!.temp!.toSelcius())
-            self.descriptionLabel.text = nightList[0].weather?[0].description
+            self.descriptionLabel.text = nightList[0].weather![0].description!.translate()
         }
         
         return cell
@@ -122,12 +123,12 @@ class ViewController: UIViewController,  UICollectionViewDelegate, UICollectionV
         weekDayLabel.text = dtTime.toWeekday(indexPath.row)
         
         if checkImage.last == "d" {
-            descriptionLabel.text = dayList[indexPath.row].weather![0].description
+            descriptionLabel.text = dayList[indexPath.row].weather![0].description?.translate()
             tempLabel.text = String(dayList[indexPath.row].main!.temp!.toSelcius())
             imageView.image = UIImage(named: dayList[indexPath.row].weather![0].icon!)
             
         } else if checkImage.last == "n" {
-            descriptionLabel.text = nightList[indexPath.row].weather![0].description
+            descriptionLabel.text = nightList[indexPath.row].weather![0].description?.translate()
             tempLabel.text = String(nightList[indexPath.row].main!.temp!.toSelcius())
             imageView.image = UIImage(named: nightList[indexPath.row].weather![0].icon!)
         }

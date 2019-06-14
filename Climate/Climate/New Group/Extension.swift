@@ -31,6 +31,38 @@ extension Double {
     }
 }
 
+extension String {
+    func translate() -> String {
+        switch self {
+        case "Bishkek":
+            return "Бишкек"
+        case "clear sky":
+            return "Ясное небо"
+        case "few clouds":
+            return "Малооблачно"
+        case "overcast clouds":
+            return "Пасмурно"
+        case "scattered clouds":
+            return "Рассеянные облака"
+        case "broken clouds":
+            return "Облачность"
+        case "shower rain":
+            return "Ливень"
+        case "rain":
+            return "Дождь"
+        case "thunderstorm":
+            return "Гроза"
+        case "snow":
+            return "Снег"
+        case "mist":
+            return "Туман"
+        default:
+            return self
+        }
+    }
+    
+}
+
 
 func unixTimeToWeekday(unixTime: Double, timeZone: String = "Kazakhstan/Almaty", offset: Int) -> String {
     if(timeZone == "" || unixTime == 0.0) {

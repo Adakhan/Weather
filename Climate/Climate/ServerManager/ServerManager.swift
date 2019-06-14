@@ -48,7 +48,6 @@ class ServerManager {
             
             do {
                 let informations = try JSONDecoder().decode(DetailedWeather.self, from: data)
-                s
                 DispatchQueue.main.async {
                     completion(informations)
                 }
