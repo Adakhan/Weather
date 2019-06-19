@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 
 class ServerManager {
     
@@ -20,13 +21,16 @@ class ServerManager {
     func loadCurrentWeather( completion: @escaping (CurrentWeather)->() ) {
         
         let jsonUrlString = "\(main)weather?\(coord)&APPID=\(key)"
+        
         guard let url = URL(string: jsonUrlString) else { return }
         
-        URLSession.shared.dataTask(with: url) { (data, response, err) in
-            guard let data = data else { return }
-            
+        Alamofire.request(url).validate().responseJSON { (response) in
+            let result = response.data
+    
             do {
-                let information = try JSONDecoder().decode(CurrentWeather.self, from: data)
+                let decoder = JSONDecoder()
+                decoder.dateDecodingStrategy = .secondsSince1970
+                let information = try decoder.decode(CurrentWeather.self, from: result!)
                 
                 DispatchQueue.main.async {
                     completion(information)
@@ -34,26 +38,32 @@ class ServerManager {
             } catch let jsonErr {
                 print("Error serializing json:", jsonErr)
             }
-
-            }.resume()
+        }
+        
     }
     
     func loadForecastWeather( completion:  @escaping (DetailedWeather)->()){
         
         let jsonUrlString = "\(main)forecast?\(coord)&APPID=\(key)"
+        
         guard let url = URL(string: jsonUrlString) else { return }
         
-        URLSession.shared.dataTask(with: url) { (data, response, err) in
-            guard let data = data else { return }
+        Alamofire.request(url).validate().responseJSON { (response) in
+            let result = response.data
+            
             
             do {
-                let informations = try JSONDecoder().decode(DetailedWeather.self, from: data)
+                let decoder = JSONDecoder()
+                decoder.dateDecodingStrategy = .secondsSince1970
+                let informations = try decoder.decode(DetailedWeather.self, from: result!)
+                
                 DispatchQueue.main.async {
                     completion(informations)
                 }
             } catch let jsonErr {
                 print("Error serializing json:", jsonErr)
             }
-            }.resume()
+        }
+
     }
 }
