@@ -62,7 +62,7 @@ class ViewController: UIViewController,  UICollectionViewDelegate, UICollectionV
         self.checkImage = (information.weather?[0].icon)!
         self.collecView.reloadData()
         
-        if information.weather?[0].icon?.last! == "d" {
+        if checkImage.last! == "d" {
             self.setBlueGradientBackground()
         } else {
             self.setBlackGradientBackground()
@@ -99,21 +99,11 @@ class ViewController: UIViewController,  UICollectionViewDelegate, UICollectionV
         }
         
         cell.weekdayLabel.text = dtTime.toWeekday(indexPath.row)
-        cell.dayTempLabel.text = dayList[indexPath.row].main!.temp!.toSelcius().toStr()
-        cell.nightTempLabel.text = nightList[indexPath.row].main!.temp!.toSelcius().toStr()
+        cell.dayTempLabel.text = dayList[indexPath.row].main!.temp!.toSelcius()
+        cell.nightTempLabel.text = nightList[indexPath.row].main!.temp!.toSelcius()
         
         //MARK: - UI Update
-        if checkImage.last == "d" {
-            self.tempLabel.text = String(dayList[0].main!.temp!.toSelcius())
-            self.descriptionLabel.text = dayList[0].weather![0].description!.translate()
-            self.imageView.image = UIImage(named: (dayList[0].weather?[0].icon!)!)
-
-
-        } else if checkImage.last == "n" {
-            self.imageView.image = UIImage(named: (nightList[0].weather?[0].icon!)!)
-            self.tempLabel.text = String(nightList[0].main!.temp!.toSelcius())
-            self.descriptionLabel.text = nightList[0].weather![0].description!.translate()
-        }
+        loadMainUI()
         
         return cell
     }
@@ -124,13 +114,28 @@ class ViewController: UIViewController,  UICollectionViewDelegate, UICollectionV
         
         if checkImage.last == "d" {
             descriptionLabel.text = dayList[indexPath.row].weather![0].description?.translate()
-            tempLabel.text = String(dayList[indexPath.row].main!.temp!.toSelcius())
+            tempLabel.text = dayList[indexPath.row].main!.temp!.toSelcius()
             imageView.image = UIImage(named: dayList[indexPath.row].weather![0].icon!)
             
         } else if checkImage.last == "n" {
             descriptionLabel.text = nightList[indexPath.row].weather![0].description?.translate()
-            tempLabel.text = String(nightList[indexPath.row].main!.temp!.toSelcius())
+            tempLabel.text = nightList[indexPath.row].main!.temp!.toSelcius()
             imageView.image = UIImage(named: nightList[indexPath.row].weather![0].icon!)
+        }
+    }
+    
+    // Change UI
+    func loadMainUI() {
+        if checkImage.last == "d" {
+            self.tempLabel.text = dayList[0].main!.temp!.toSelcius()
+            self.descriptionLabel.text = dayList[0].weather![0].description!.translate()
+            self.imageView.image = UIImage(named: (dayList[0].weather?[0].icon!)!)
+            
+            
+        } else if checkImage.last == "n" {
+            self.imageView.image = UIImage(named: (nightList[0].weather?[0].icon!)!)
+            self.tempLabel.text = nightList[0].main!.temp!.toSelcius()
+            self.descriptionLabel.text = nightList[0].weather![0].description!.translate()
         }
     }
     

@@ -14,20 +14,18 @@ extension Int {
         return unixTimeToWeekday(unixTime: Double(self), offset: offset)
     }
     
-    func toStr() -> String {
-        if self < 0 {
-            return "-\(self) °C"
-        }
-        if self > 0 {
-            return "+\(self) °C"
-        }
-        return "\(self) °C"
-    }
 }
 
 extension Double {
-    func toSelcius() -> Int {
-        return Int(self) - 273
+    func toSelcius() -> String {
+        let result = Int(self) - 273
+        if result < 0 {
+            return "-\(result) °C"
+        }
+        if self > 0 {
+            return "+\(result) °C"
+        }
+        return "\(result) °C"
     }
 }
 
@@ -56,6 +54,8 @@ extension String {
             return "Снег"
         case "mist":
             return "Туман"
+        case "light rain":
+            return "Легкий дождь"
         default:
             return self
         }

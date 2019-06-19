@@ -15,7 +15,7 @@
 		FAAC3E3222B106C200EA2AB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAAC3E3122B106C200EA2AB6 /* Assets.xcassets */; };
 		FAAC3E3522B106C200EA2AB6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAAC3E3322B106C200EA2AB6 /* LaunchScreen.storyboard */; };
 		FAAC3E3D22B106FF00EA2AB6 /* WeatherCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC3E3C22B106FF00EA2AB6 /* WeatherCollectionCell.swift */; };
-		FAAC3E3F22B1071F00EA2AB6 /* WModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC3E3E22B1071F00EA2AB6 /* WModel.swift */; };
+		FAAC3E3F22B1071F00EA2AB6 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC3E3E22B1071F00EA2AB6 /* Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +31,7 @@
 		FAAC3E3422B106C200EA2AB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FAAC3E3622B106C200EA2AB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAAC3E3C22B106FF00EA2AB6 /* WeatherCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCollectionCell.swift; sourceTree = "<group>"; };
-		FAAC3E3E22B1071F00EA2AB6 /* WModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WModel.swift; sourceTree = "<group>"; };
+		FAAC3E3E22B1071F00EA2AB6 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,7 +64,7 @@
 		FA94B65022B2B71000DEB1FE /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				FAAC3E3E22B1071F00EA2AB6 /* WModel.swift */,
+				FAAC3E3E22B1071F00EA2AB6 /* Model.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -176,7 +176,7 @@
 			files = (
 				FA94B64E22B2B6C000DEB1FE /* ServerManager.swift in Sources */,
 				FAAC3E2D22B106C100EA2AB6 /* ViewController.swift in Sources */,
-				FAAC3E3F22B1071F00EA2AB6 /* WModel.swift in Sources */,
+				FAAC3E3F22B1071F00EA2AB6 /* Model.swift in Sources */,
 				FA94B65422B2BCA300DEB1FE /* Extension.swift in Sources */,
 				FAAC3E3D22B106FF00EA2AB6 /* WeatherCollectionCell.swift in Sources */,
 				FAAC3E2B22B106C100EA2AB6 /* AppDelegate.swift in Sources */,
