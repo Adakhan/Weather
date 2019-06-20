@@ -35,7 +35,7 @@ class ServerManager {
                 DispatchQueue.main.async {
                     completion(information)
                 }
-            } catch let jsonErr {
+            }  catch let jsonErr {
                 print("Error serializing json:", jsonErr)
             }
         }
