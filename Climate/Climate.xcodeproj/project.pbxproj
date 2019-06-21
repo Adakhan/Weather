@@ -26,7 +26,7 @@
 		FA1D6E0222B3DC6200872790 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		FA1D6E0322B3DC6200872790 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		FA94B64D22B2B6C000DEB1FE /* ServerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerManager.swift; sourceTree = "<group>"; };
-		FA94B65322B2BCA300DEB1FE /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Extension.swift; path = "New Group/Extension.swift"; sourceTree = "<group>"; };
+		FA94B65322B2BCA300DEB1FE /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		FAAC3E2722B106C100EA2AB6 /* Climate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Climate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAAC3E2A22B106C100EA2AB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAAC3E2C22B106C100EA2AB6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -67,6 +67,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		FA8C2D0822BD1334004D64B3 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				FAAC3E2A22B106C100EA2AB6 /* AppDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		FA8C2D0922BD1354004D64B3 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				FA94B65322B2BCA300DEB1FE /* Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		FA94B64C22B2B6AC00DEB1FE /* ServerManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -78,6 +94,7 @@
 		FA94B64F22B2B6EC00DEB1FE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				FAAC3E3C22B106FF00EA2AB6 /* WeatherCollectionCell.swift */,
 				FAAC3E2C22B106C100EA2AB6 /* ViewController.swift */,
 			);
 			path = Controller;
@@ -112,10 +129,9 @@
 		FAAC3E2922B106C100EA2AB6 /* Climate */ = {
 			isa = PBXGroup;
 			children = (
+				FA8C2D0922BD1354004D64B3 /* Extension */,
+				FA8C2D0822BD1334004D64B3 /* AppDelegate */,
 				FAAC3E3622B106C200EA2AB6 /* Info.plist */,
-				FAAC3E2A22B106C100EA2AB6 /* AppDelegate.swift */,
-				FA94B65322B2BCA300DEB1FE /* Extension.swift */,
-				FAAC3E3C22B106FF00EA2AB6 /* WeatherCollectionCell.swift */,
 				FAAC3E3122B106C200EA2AB6 /* Assets.xcassets */,
 				FA94B64F22B2B6EC00DEB1FE /* Controller */,
 				FAAC3E3322B106C200EA2AB6 /* LaunchScreen.storyboard */,

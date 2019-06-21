@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController,  UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-
+    
     
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
@@ -22,22 +22,22 @@ class ViewController: UIViewController,  UICollectionViewDelegate, UICollectionV
     
     @IBOutlet weak var backView: UIView!
     
- 
+    
     var dtTime: Int = 0
-    var checkImage = ""
+    var checkDay = ""
     
     var dayList: [List] = []
     var nightList: [List] = []
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loadCurrentWeather()
         loadForecastWeather()
         initSetUp()
-        }
+    }
     
-
+    
     
     func initSetUp() {
         collecView.dataSource = self
@@ -59,12 +59,14 @@ class ViewController: UIViewController,  UICollectionViewDelegate, UICollectionV
     func UpdateCurrentData(information: CurrentWeather){
         self.weekDayLabel.text = information.dt?.toWeekday(0)
         
-        self.checkImage = (information.weather?[0].icon)!
+        self.checkDay = (information.weather?[0].icon)!
         self.collecView.reloadData()
         
-        if checkImage.last! == "d" {
+        if checkDay.last! == "d" {
+            checkDay = "d"
             self.setBlueGradientBackground()
         } else {
+            checkDay = "n"
             self.setBlackGradientBackground()
         }
     }
@@ -72,7 +74,7 @@ class ViewController: UIViewController,  UICollectionViewDelegate, UICollectionV
     func UpdateForecastData(informations: DetailedWeather){
         self.cityLabel?.text = informations.city!.name!.translate()
         self.dtTime = informations.list![0].dt!
-    
+        
         for checked in informations.list! {
             if checked.dt_txt!.suffix(8) == "09:00:00" {
                 self.dayList.append(checked)
@@ -83,8 +85,8 @@ class ViewController: UIViewController,  UICollectionViewDelegate, UICollectionV
         self.collecView.reloadData()
     }
     
-   
-
+    
+    
     //MARK: - Collection View
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 5
@@ -103,7 +105,7 @@ class ViewController: UIViewController,  UICollectionViewDelegate, UICollectionV
         cell.nightTempLabel.text = nightList[indexPath.row].main!.temp!.toSelcius()
         
         //MARK: - UI Update
-        loadMainUI()
+        UpdateUI()
         
         return cell
     }
@@ -112,12 +114,12 @@ class ViewController: UIViewController,  UICollectionViewDelegate, UICollectionV
         
         weekDayLabel.text = dtTime.toWeekday(indexPath.row)
         
-        if checkImage.last == "d" {
+        if checkDay == "d" {
             descriptionLabel.text = dayList[indexPath.row].weather![0].description?.translate()
             tempLabel.text = dayList[indexPath.row].main!.temp!.toSelcius()
             imageView.image = UIImage(named: dayList[indexPath.row].weather![0].icon!)
             
-        } else if checkImage.last == "n" {
+        } else if checkDay == "n" {
             descriptionLabel.text = nightList[indexPath.row].weather![0].description?.translate()
             tempLabel.text = nightList[indexPath.row].main!.temp!.toSelcius()
             imageView.image = UIImage(named: nightList[indexPath.row].weather![0].icon!)
@@ -125,14 +127,14 @@ class ViewController: UIViewController,  UICollectionViewDelegate, UICollectionV
     }
     
     // Change UI
-    func loadMainUI() {
-        if checkImage.last == "d" {
+    func UpdateUI() {
+        if checkDay == "d" {
             self.tempLabel.text = dayList[0].main!.temp!.toSelcius()
             self.descriptionLabel.text = dayList[0].weather![0].description!.translate()
             self.imageView.image = UIImage(named: (dayList[0].weather?[0].icon!)!)
             
             
-        } else if checkImage.last == "n" {
+        } else if checkDay == "n" {
             self.imageView.image = UIImage(named: (nightList[0].weather?[0].icon!)!)
             self.tempLabel.text = nightList[0].main!.temp!.toSelcius()
             self.descriptionLabel.text = nightList[0].weather![0].description!.translate()

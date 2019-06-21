@@ -26,7 +26,7 @@ class ServerManager {
         
         Alamofire.request(url).validate().responseJSON { (response) in
             let result = response.data
-    
+            
             do {
                 let decoder = JSONDecoder()
                 decoder.dateDecodingStrategy = .secondsSince1970
@@ -64,6 +64,5 @@ class ServerManager {
                 print("Error serializing json:", jsonErr)
             }
         }
-
     }
 }
